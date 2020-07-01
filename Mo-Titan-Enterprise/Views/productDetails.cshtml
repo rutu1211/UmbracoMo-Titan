@@ -1,0 +1,83 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = "layout.cshtml";
+}
+@{
+  var id = Request.QueryString["id"];
+  // var node1 = @Model.Content.Site().FirstChild("product").Children();
+  //var node = Umbraco.TypedContent(1083);
+  //var fieldValue = node.GetPropertyValue("specificFieldAlias");
+  //var a = Model.Parent.Children("product");
+}
+<header class="header_area sticky-header">
+	<div class="main_menu">
+		<nav class="navbar navbar-expand-lg navbar-light main_box">
+			<div class="container">
+
+				<a class="navbar-brand logo_h" href="/"><img src="~/Image/logo1.png" alt="" style="width: 500px"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+					<ul class="nav navbar-nav menu_nav ml-auto">
+						<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+						<li class="nav-item active"><a class="nav-link" href="/product">Product</a></li>
+						<li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+
+
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1 style="margin-left:20%">MO-Titan Enterprises</h1>
+				<nav class="d-flex align-items-center">
+					<p style="color: white; margin-left:21%">Our company deals with all kinds of hospital equipment from simple needles to hospital furniture. </p>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="product_image_area section_gap_bottom">
+	<div class="container">
+		<div class="row s_product_inner">
+			<div class="col-lg-6">
+				<div class="s_Product_carousel">
+					<div class="single-prd-item">
+						<img class="img-fluid" src="~/Image/s-p1.jpg" alt="">
+					</div>
+					<div class="single-prd-item">
+						<img class="img-fluid" src="~/Image/s-p1.jpg" alt="">
+					</div>
+					<div class="single-prd-item">
+						<img class="img-fluid" src="~/Image/s-p1.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 offset-lg-1">
+				<div class="s_product_text">
+					<h3>Faded SkyBlu Denim Jeans</h3>
+					<h2>$149.99</h2>
+					<ul class="list">
+						<li><a class="active" href="#"><span>Category</span> : Household</a></li>
+						<li><a href="#"><span>Availibility</span> : In Stock</a></li>
+					</ul>
+					<p>
+						Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
+						something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
+						during the winter.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

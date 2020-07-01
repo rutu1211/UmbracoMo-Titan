@@ -1,0 +1,114 @@
+{
+  "name": "Contact Details",
+  "created": "2020-06-30T15:40:03.3210988+05:30",
+  "pages": [
+    {
+      "fieldSets": [
+        {
+          "caption": null,
+          "sortOrder": 0,
+          "id": "6c232a2d-b2a8-4963-8d4d-6a38666b23a1",
+          "page": "00000000-0000-0000-0000-000000000000",
+          "containers": [
+            {
+              "caption": null,
+              "width": 12,
+              "fields": [
+                {
+                  "caption": "Consent for storing submitted data",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "dataConsent",
+                  "id": "7a4a0635-8091-4f6f-8ab5-b5f0f4b844c7",
+                  "fieldTypeId": "a72c9df9-3847-47cf-afb8-b86773fd12cd",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": "Consent is required to store and process the data in this form.",
+                  "invalidErrorMessage": null,
+                  "condition": null,
+                  "settings": {
+                    "AcceptCopy": "Yes, I give permission to store and process my data"
+                  },
+                  "preValues": null
+                }
+              ]
+            }
+          ],
+          "condition": null
+        },
+        {
+          "caption": "",
+          "sortOrder": 0,
+          "id": "da4dbe40-2ec7-42e9-da9e-38af3f260b53",
+          "page": "00000000-0000-0000-0000-000000000000",
+          "containers": [
+            {
+              "caption": "",
+              "width": 12,
+              "fields": [
+                {
+                  "caption": "Enter yout name",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "enterYoutName",
+                  "id": "65fba703-8ce7-46bc-a1a0-f40414db4842",
+                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": false,
+                  "regex": "",
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "Placeholder": "Enter you name"
+                  },
+                  "preValues": []
+                }
+              ]
+            }
+          ],
+          "condition": null
+        }
+      ],
+      "caption": null,
+      "sortOrder": 0,
+      "id": "00000000-0000-0000-0000-000000000000",
+      "form": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "id": "55028510-bc5c-4362-b0eb-284a3b96991d",
+  "fieldIndicationType": "MarkMandatoryFields",
+  "indicator": "*",
+  "showValidationSummary": false,
+  "hideFieldValidation": false,
+  "requiredErrorMessage": "Please provide a value for {0}",
+  "invalidErrorMessage": "Please provide a valid value for {0}",
+  "messageOnSubmit": "Thank you",
+  "goToPageOnSubmit": 0,
+  "xPathOnSubmit": null,
+  "manualApproval": false,
+  "storeRecordsLocally": true,
+  "cssClass": null,
+  "disableDefaultStylesheet": false,
+  "useClientDependency": false,
+  "workflows": [
+    "da7210ef-4c7f-48aa-b5b6-b68e8bb7f81e"
+  ],
+  "datasource": null,
+  "submitLabel": "Submit",
+  "nextLabel": "Next",
+  "prevLabel": "Previous"
+}

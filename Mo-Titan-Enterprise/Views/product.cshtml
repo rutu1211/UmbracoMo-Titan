@@ -1,0 +1,148 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "layout.cshtml";
+}
+
+@* the fun starts here *@
+@{
+  var id = Request.QueryString["id"];
+  var pageNumber = Convert.ToDouble(Request.QueryString["page"]);
+  var totalChildren = Model.Children();
+  double pageSize = 2;
+  double skip = 0;
+  var take = pageSize;
+  if (id != null & id != "")
+  {
+      totalChildren = Model.Children.Where(x => x.Value("categoryType").ToString() == id);
+  }
+   if(pageNumber != 0)
+      {
+          skip = pageSize * pageNumber;
+          take = pageSize;
+      }  
+  if(pageNumber == 0)
+  {
+      pageNumber = 1;
+  }
+  double totalItems = totalChildren.Count();
+  totalChildren = totalChildren.Skip(Convert.ToInt32(skip)).Take(Convert.ToInt32(take));
+  double totalPages = Math.Floor((totalItems / pageSize));
+}
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1 style="margin-left:20%">MO-Titan Enterprises</h1>
+                <nav class="d-flex align-items-center">
+                    <p style="color: white; margin-left:21%">Our company deals with all kinds of hospital equipment from simple needles to hospital furniture. </p>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+@*var page = currentNode.Children.FirstOrDefault(x => x.DocumentTypeAlias == "umbTextPage");*@
+<div class="container section_gap_bottom">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="sidebar-categories">
+                <div class="head">Browse Categories</div>
+                <ul class="main-categories">
+                    @{
+                        var hobbiesCheckboxList = Services.DataTypeService.GetDataType(1077);
+                        var hobbiesList = ((Umbraco.Core.PropertyEditors.ValueListConfiguration)hobbiesCheckboxList.Configuration).Items;
+                        foreach (var item in hobbiesList)
+                        {
+                            <li class="main-nav-list">
+                                <a href="/Product?id=@item.Value" aria-expanded="false" aria-controls="@item.Value"><span class="lnr lnr-arrow-right"></span>@item.Value<span class="number">(@Model.Children.Where(x => x.Value("categoryType").ToString() == item.Value).Count())</span></a>
+                            </li>
+                        }
+
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8 col-md-7">
+
+            <div class="filter-bar d-flex flex-wrap align-items-center">
+                <div class="pagination">
+                    <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                    <a href="#">6</a>
+                    <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+
+            <section class="lattest-product-area pb-40 category-list">
+                <div class="row">
+                    @if (totalChildren.Count() == 0)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="no-record">No Record Found..</div>
+                        </div>
+                    }
+                    else
+                    {
+                        foreach (var feature in totalChildren)
+                        {
+                            <div class="col-lg-4 col-md-6">
+                                <a href="/productdetails?id=@feature.Value("title")">
+                                    <div class="single-product">
+                                        <img class="img-fluid" src="@(feature.Value<IPublishedContent>("image").Url)" alt="">
+                                        <div class="product-details">
+                                            <h6>
+                                                @(feature.Value("categoryType"))
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </section>
+
+
+            <div class="filter-bar d-flex flex-wrap align-items-center">
+                <div class="sorting mr-auto">
+                    <div class="pagination">
+                        @if (totalPages == 0)
+                        {
+                            <a href="/Product?id=@id&page=1" class="active">1</a>
+                        }
+                        else
+                        {
+                            var i = 1;
+                            while (i <= totalPages)
+                            {
+                                
+                                if (id != null & id != "")
+                                {
+                                    <a href="/Product?id=@id/page=@i" class="@(pageNumber == i ? "active" : "")">@i</a>
+                                }
+                                else
+                                {
+                                    <a href="/Product?page=@i" class="@(pageNumber == i ? "active" : "")">@i</a>
+                                }
+                                i++;
+                            }
+                        }
+
+                        @*<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+        <a href="#">6</a>
+        <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>*@
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

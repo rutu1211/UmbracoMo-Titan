@@ -1,0 +1,17 @@
+{
+  "id": "da7210ef-4c7f-48aa-b5b6-b68e8bb7f81e",
+  "name": "Send template email to fabrutu@gmail.com",
+  "form": "55028510-bc5c-4362-b0eb-284a3b96991d",
+  "active": true,
+  "includeSensitiveData": "False",
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "fabrutu@gmail.com",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}
